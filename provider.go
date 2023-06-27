@@ -13,23 +13,25 @@ func Provider() *schema.Provider {
 			"kea_server_address": {
 				Type:        schema.TypeString,
 				Required:    true,
+				DefaultFunc: schema.EnvDefaultFunc("KEA_DHCP_SERVER", nil),
 				Description: "IP or FQDN of host which serves Kea Control Agent API",
 			},
 			"kea_server_username": {
 				Type:        schema.TypeString,
 				Optional:    true,
-				Default:     "admin",
+				DefaultFunc: schema.EnvDefaultFunc("KEA_DHCP_USERNAME", "admin"),
 				Description: "HTTP basic auth username (if configured)",
 			},
 			"kea_server_password": {
 				Type:        schema.TypeString,
 				Optional:    true,
-				Default:     "password",
+				DefaultFunc: schema.EnvDefaultFunc("KEA_DHCP_PASSWORD", "password"),
 				Description: "HTTP basic auth password (if configured)",
 			},
 			"kea_server_configfile": {
 				Type:        schema.TypeString,
 				Required:    true,
+				DefaultFunc: schema.EnvDefaultFunc("KEA_DHCP_CONFIG_FILE", nil),
 				Description: "Path to Kea DHCP4 server config (on server, required for config-write command)",
 			},
 		},

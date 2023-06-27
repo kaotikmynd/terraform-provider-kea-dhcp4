@@ -40,10 +40,10 @@ provider "kea-dhcp4" {
 
 ### Required
 
-- `kea_server_address` (String) IP or FQDN of host which serves Kea Control Agent API
-- `kea_server_configfile` (String) Path to Kea DHCP4 server config (on server, required for config-write command)
+- `kea_server_address` (String) IP or FQDN of host which serves Kea Control Agent API. Can also be specified using the `KEA_DHCP_SERVER` environment variable.
+- `kea_server_configfile` (String) Path to Kea DHCP4 server config (on server, required for config-write command). Can also be specified using the `KEA_DHCP_CONFIG_FILE` environment variable.
 
 ### Optional
 
-- `kea_server_password` (String) HTTP basic auth password (if configured)
-- `kea_server_username` (String) HTTP basic auth username (if configured)
+- `kea_server_password` (String) HTTP basic auth password (if configured). Can also be specified using the `KEA_DHCP_USER` environment variable.
+- `kea_server_username` (String) HTTP basic auth username (if configured). Can also be specified using the `KEA_DHCP_PASSWORD` environment variable.
